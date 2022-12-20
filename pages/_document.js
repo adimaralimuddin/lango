@@ -8,7 +8,8 @@ export default function Document() {
           // you might need to get a newer version
           src="https://kit.fontawesome.com/d3f075dedd.js"
           crossOrigin="anonymous"
-        ></script>
+          async
+        />
       </Head>
       <body>
         <Main />

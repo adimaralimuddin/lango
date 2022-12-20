@@ -31,7 +31,7 @@ export default function PlayEditor() {
         <div className="flex flex-col flex-[1] py-6">
           <div className="overflow-y-auto bg-red-600f flex-1 flex flex-col items-center py-5 gap-5">
             {items?.map((item, ind) => (
-              <ItemView item={item} ind={ind} />
+              <ItemView item={item} ind={ind} key={item?.id} />
             ))}
           </div>
         </div>

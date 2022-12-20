@@ -32,6 +32,7 @@ export default function PlayVoiceEditor({ voice, onInput }) {
         <div
           className={"ring-2d rounded-md p-1 overflow-hidden cursor-pointer "}
           onClick={() => onInputHandler(voice_)}
+          key={voice_.val}
         >
           <Image
             alt={voice_?.align}

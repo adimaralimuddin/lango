@@ -3,7 +3,7 @@ import useLang from "../../hooks/useLang";
 import Icon from "../elements/Icon";
 import LangEditor from "./LangEditor";
 
-export default function langUpdater({ data }) {
+export default function LangUpdater({ data }) {
   const [open, setOpen] = useState(false);
   const { updateLang } = useLang();
 
