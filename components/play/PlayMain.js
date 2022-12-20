@@ -5,7 +5,6 @@ import NextBut from "../elements/NextBut";
 import ItemPlay from "./item/ItemPlay";
 import PlayEditor from "./PlayEditor";
 import PlayFinish from "./PlayFinish";
-import HomeBut from "../elements/HomeBut";
 import PlayHeader from "./PlayHeader";
 
 export default function PlayMain() {

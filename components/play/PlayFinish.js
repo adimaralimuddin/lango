@@ -1,8 +1,7 @@
 import React from "react";
 import usePlay from "../../hooks/usePlay";
-import Box from "../elements/box";
+import Box from "../elements/Box";
 import But from "../elements/But";
-import Icon from "../elements/Icon";
 
 export default function PlayFinish() {
   const { replay, home } = usePlay();

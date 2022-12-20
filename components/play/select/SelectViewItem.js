@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Box from "../../elements/box";
+import Box from "../../elements/Box";
 import But from "../../elements/But";
 import Icon from "../../elements/Icon";
 import Indexer from "../../elements/Indexer";

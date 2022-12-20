@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Box from "../../elements/box";
-import But from "../../elements/But";
+import Box from "../../elements/Box";
 
-import { removeDb } from "../../../hooks/useDb";
 import LinesUpdater from "./LinesUpdater";
 import LineAdder from "./LineAdder";
 import useLines from "./useLines";
