@@ -1,0 +1,168 @@
+
+function convertAudio(url) {
+    return new Promise((resolve, reject) => {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                resolve(reader.result)
+            }
+            reader.readAsDataURL(xhr.response);
+        };
+        xhr.open('GET', url);
+        xhr.responseType = 'blob';
+        xhr.send();
+    })
+
+}
+
+const audioB64 = await convertAudio(res.data.path)
+
+/////////////////////////////////////
+
+export const translate = async ({ text, to = 'en-us', from = 'en-us' }) => {
+    const options = {
+        method: 'POST',
+        url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
+        params: {
+            to,
+            from,
+            'api-version': '3.0',
+            toScript: to == 'en-us' ? from : 'latn',
+            profanityAction: 'NoAction',
+            textType: 'plain'
+        },
+        headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
+            'X-RapidAPI-Key': 'aff1177afamsh1fb255402c24c5ap1be9e4jsn4efe400f2d7e'
+        },
+        data: [{ Text: text }]
+    }
+    if (!noScripts?.find(s => s == to)) {
+        options?.params?.toScript = 'latn'
+    }
+
+    const res = await axios.request(options)
+    // console.log(res);
+    const trans = res?.data[0]?.translations[0]?.text
+    const latin = res.data[0]?.translations[0]?.transliteration?.text || ''
+    // console.log({ trans, latin });
+    return { trans, latin }
+}
+
+
+base64 to File 
+    // const url = Http.responseText;
+    // fetch(url)
+    //   .then((res) => res.blob())
+    //   .then((blob) => {
+    //     const file = new File([blob], "File name", { type: "audio/mp3" });
+    //     console.log("file ", file);
+    //   });
+
+
+
+
+    
+languages:
+english---
+en-us
+linda fem yes
+amy fem
+mary fem
+john male
+mike male
+aada fem
+
+japanese---
+ja-jp 
+hina fem def
+airi fem
+fumi fem/
+akira male
+
+
+korean---
+ko-kr
+nari fem def
+
+indonesian--
+id-id
+intan male def
+
+hindi--
+hi-in
+puja fem yes
+kabir male
+
+chinese--
+zh-cn
+luli fem def
+shu fem
+chow fem
+wang male
+
+arabia--
+ar-sa
+salim male def
+
+french--
+fr-fr
+bette fem def
+iva fem
+zola fem
+axel male
+
+germany--
+de-de
+hanna fem def
+lina fem
+jonas male
+
+italian--
+it-it
+bria fem def
+mia fem
+pietro male
+
+thai--
+th-th
+ukrit male def
+
+----------------
+
+A1 beginner
+A2 intermediate
+b1 upper intermediate 
+b2 advanced
+c1 expert 
+c2 proficiency
+
+--------------
+
+a1- lessons
+
+structure
+verb
+place preposition
+time preposition 
+
+1 this is an apple
+2 she eats my apple
+3 the apple is under the table 
+4 she eats my apple under the table yesterday 
+4 
+
+
+an apple.
+this is an apple
+this apple is red 
+
+a banana
+this banana is yellow 
+
+an apple and a banana 
+a boy
+a boy and an apple
+this is a boy and an apple 
