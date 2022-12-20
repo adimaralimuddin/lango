@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Box from "../../elements/box";
+import Box from "../../elements/Box";
 import { removeDb } from "../../../hooks/useDb";
 import DiagUpdater from "./DiagUpdater";
 import Indexer from "../../elements/Indexer";

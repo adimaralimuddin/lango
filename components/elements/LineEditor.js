@@ -1,5 +1,5 @@
 import React, { useState, useSyncExternalStore } from "react";
-import Box from "./box";
+import Box from "./Box";
 import InputAudio from "./InputAudio";
 import InputFile from "./InputFile";
 import But from "./But";

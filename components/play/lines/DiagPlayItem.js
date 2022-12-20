@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import usePlay from "../../../hooks/usePlay";
-import Box from "../../elements/box";
+import Box from "../../elements/Box";
 import But from "../../elements/But";
 import Img from "../../elements/Img";
 import DiagUpdater from "./DiagUpdater";

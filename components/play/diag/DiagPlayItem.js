@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import usePlay from "../../../hooks/usePlay";
 import Aud from "../../elements/Aud";
-import Box from "../../elements/box";
+import Box from "../../elements/Box";
 import Icon from "../../elements/Icon";
 import Line from "../../elements/Line";
 import { getAvatar } from "../../../hooks/trans";

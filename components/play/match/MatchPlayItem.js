@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import usePlay from "../../../hooks/usePlay";
-import Box from "../../elements/box";
+import Box from "../../elements/Box";
 import Icon from "../../elements/Icon";
 import LinePlayItem from "../lines/LinePlayItem";
 import useLines from "../lines/useLines";
