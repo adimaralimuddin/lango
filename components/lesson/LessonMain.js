@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import useLesson from "../../hooks/useLesson";
 import ButBack from "../elements/ButBack";
-import LessonAdder from "./LessonAdder";
 import LessonItem from "./LessonItem";
 import useMain from "../main/MainStore";
 
@@ -25,7 +24,6 @@ export default function LessonMain() {
     <div className="flex-1 flex flex-col items-center">
       <div className="flex gap-3 p-3 w-full max-w-xl">
         <ButBack caller={onBack}>levels</ButBack>
-        <LessonAdder />
       </div>
       <div className="flex flex-col w-full max-w-xl p-3 gap-3">
         <h1>Lessons</h1>

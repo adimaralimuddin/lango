@@ -1,11 +1,7 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
-import { removeDb } from "../../hooks/useDb";
 import Box from "../elements/Box";
-import But from "../elements/But";
 import useMain from "../main/MainStore";
-import LessonUpdater from "./LessonUpdater";
 import Indexer from "../elements/Indexer";
 
 export default function LessonItem({ data }) {
@@ -29,10 +25,6 @@ export default function LessonItem({ data }) {
             {data?.name}
           </p>
           <p className="leading-3 text-slate-300">{data?.desc}</p>
-        </div>
-        <div className="flex items-center">
-          <But onClick={() => removeDb("lessons", data?.id)}>x</But>
-          <LessonUpdater data={data} />
         </div>
       </div>
     </Box>
