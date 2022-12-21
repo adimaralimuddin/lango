@@ -35,16 +35,18 @@ export default function PlayMain() {
 
       {!isPlay && (
         <div className="flex-1 flex flex-col items-center justify-center">
-          <p>LESSON {lessonData?.num}</p>
+          <h3 className="text-slate-300 text-xl font-semibold">
+            LESSON {lessonData?.num}
+          </h3>
           <h1 className="text-4xl font-bold text-purple-200">
             {lessonData?.name}
           </h1>
-          <h2>{lessonData?.desc}</h2>
+          <h2 className="text-slate-300 py-1">{lessonData?.desc}</h2>
           <button
             onClick={play}
-            className=" my-3 dark:bg-purple-300 rounded-2xl px-6 py-2 font-bold text-3xl"
+            className=" my-3 hover:scale-105 transition-all duration-200 bg-purple-400 hover:bg-purple-500 rounded-2xl px-6 py-2 font-bold text-3xl"
           >
-            PLAY
+            <i className="fa-solid fa-play"></i> PLAY
           </button>
         </div>
       )}

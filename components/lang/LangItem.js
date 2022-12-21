@@ -28,10 +28,6 @@ export default function LangItem({ data }) {
           </div>
         )}
         <p className="text-purple-200">{data?.name}</p>
-        <div className="flex gap-2 text-slate-400">
-          <small>{data?.code}</small>
-          <small>{data?.audCode}</small>
-        </div>
       </div>
     </Box>
   );

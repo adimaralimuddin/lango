@@ -55,6 +55,10 @@ export default function usePlay() {
     set({ isPlay: true, finish: false });
   }
 
+  function stop() {
+    set({ isPlay: false, finish: false, done: false, ind: 0 });
+  }
+
   function edit() {
     new Audio("/audio/error.wav")?.play();
     set({ isPlay: false, finish: false });
@@ -99,6 +103,7 @@ export default function usePlay() {
     item,
     listenItems,
     play,
+    stop,
     toglePlay,
     next,
     setDone,
