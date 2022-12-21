@@ -3,14 +3,14 @@ import React, { useEffect } from "react";
 import usePlay from "../../hooks/usePlay";
 import NextBut from "../elements/NextBut";
 import ItemPlay from "./item/ItemPlay";
-import PlayEditor from "./PlayEditor";
 import PlayFinish from "./PlayFinish";
 import PlayHeader from "./PlayHeader";
 
 export default function PlayMain() {
   const router = useRouter();
   const { lang, level, lesson } = router.query;
-  const { set, item, listenItems, isPlay, finish } = usePlay();
+  const { play, set, item, listenItems, isPlay, finish, lessonData } =
+    usePlay();
 
   useEffect(() => {
     const ret = listenItems(lesson);
@@ -18,12 +18,8 @@ export default function PlayMain() {
     return ret;
   }, [router.query]);
 
-  function test() {
-    
-  }
-
   return (
-    <div className="flex min-h-screen max-h-screen h-screen">
+    <div className="flex flex-col max-h-screen h-screen min-h-screen">
       <PlayHeader />
       {finish && <PlayFinish />}
       {isPlay && (
@@ -37,7 +33,19 @@ export default function PlayMain() {
         </div>
       )}
 
-      <PlayEditor />
+      <div className="flex-1 flex flex-col items-center justify-center">
+        <p>LESSON {lessonData?.num}</p>
+        <h1 className="text-4xl font-bold text-purple-200">
+          {lessonData?.name}
+        </h1>
+        <h2>{lessonData?.desc}</h2>
+        <button
+          onClick={play}
+          className=" my-3 dark:bg-purple-300 rounded-2xl px-6 py-2 font-bold text-3xl"
+        >
+          PLAY
+        </button>
+      </div>
     </div>
   );
 }
