@@ -33,19 +33,21 @@ export default function PlayMain() {
         </div>
       )}
 
-      <div className="flex-1 flex flex-col items-center justify-center">
-        <p>LESSON {lessonData?.num}</p>
-        <h1 className="text-4xl font-bold text-purple-200">
-          {lessonData?.name}
-        </h1>
-        <h2>{lessonData?.desc}</h2>
-        <button
-          onClick={play}
-          className=" my-3 dark:bg-purple-300 rounded-2xl px-6 py-2 font-bold text-3xl"
-        >
-          PLAY
-        </button>
-      </div>
+      {!isPlay && (
+        <div className="flex-1 flex flex-col items-center justify-center">
+          <p>LESSON {lessonData?.num}</p>
+          <h1 className="text-4xl font-bold text-purple-200">
+            {lessonData?.name}
+          </h1>
+          <h2>{lessonData?.desc}</h2>
+          <button
+            onClick={play}
+            className=" my-3 dark:bg-purple-300 rounded-2xl px-6 py-2 font-bold text-3xl"
+          >
+            PLAY
+          </button>
+        </div>
+      )}
     </div>
   );
 }

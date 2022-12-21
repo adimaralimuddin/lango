@@ -5,13 +5,18 @@ import Icon from "../elements/Icon";
 import Img from "../elements/Img";
 
 export default function PlayHeader() {
-  const { play, replay, items, ind, langData } = usePlay();
+  const { play, replay, items, ind, langData, lessonData, isPlay } = usePlay();
   return (
-    <div className="flex justify-between top-0 left-0 p-2 ">
-      <div className="flex">
+    <div className="flex justify-between flex-wrap top-0 left-0 p-2 max-w-3xl mx-auto w-full ">
+      <div className="flex items-center flex-wrap">
         <HomeBut />
-        <Icon onClick={play}>play</Icon>
+        {!isPlay && <Icon onClick={play}>play</Icon>}
         <Icon onClick={replay}>refresh</Icon>
+        {isPlay && (
+          <p className="text-slate-300 px-3">
+            lesson - {lessonData?.num} - {lessonData?.name}
+          </p>
+        )}
       </div>
       <p className="text-pink-300 font-bold flex items-center">
         {ind + 1} / {items?.length}
