@@ -40,14 +40,14 @@ export default function SelectPlayItem({ data, i }) {
   };
 
   return (
-    <Box className=" select-none min-w-[300px] my-0 mx-0 bg-slate-800 p-6">
+    <div className=" select-none min-w-[300px] my-0 mx-0  p-6">
       <header className="flex ">
         <Icon onClick={restart}>rotate-right</Icon>
       </header>
       <div className=" py-2">
         <LinePlayItem
           className={
-            " bg-slate-700 " +
+            " bg-slate-700d " +
             (data?.ansSide == "img" && "h-[160px] w-[100px] mx-auto")
           }
           line={ans}
@@ -63,8 +63,8 @@ export default function SelectPlayItem({ data, i }) {
           ?.map((l, i) => (
             <LinePlayItem
               className={
-                " bg-slate-700 " +
-                (data?.side == "img" && " min-h-[150px] w-[50%]d")
+                " bg-slate-100 p-4 " +
+                (data?.side == "img" && " min-h-[120px] w-[50%]d")
               }
               line={l}
               i={i}
@@ -77,6 +77,6 @@ export default function SelectPlayItem({ data, i }) {
             />
           ))}
       </div>
-    </Box>
+    </div>
   );
 }

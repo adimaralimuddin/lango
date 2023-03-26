@@ -1,32 +1,28 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import Box from "../elements/Box";
-import useMain from "../main/MainStore";
 import Indexer from "../elements/Indexer";
+import useMain from "../main/MainStore";
 
 export default function LessonItem({ data }) {
   const { lang, level } = useMain();
   const { set } = useMain();
   const r = useRouter();
-
+  // console.log("less ", data);
   const onClickHandler = () => {
-    set({ tab: "lessons", lesson: data?.id });
+    // set({ tab: "lessons", lesson: data?.id });
     r.push(`play?lang=${lang}&level=${level}&lesson=${data?.id}`);
   };
   return (
-    <Box className="">
-      <Indexer>{data?.num}</Indexer>
-      <div className="flex flex-cold items-center justify-between gap-3 cursor-pointer p-2">
-        <div
-          className="flex flex-col ditems-center gap-3"
-          onClick={onClickHandler}
-        >
-          <p className="text-pink-300 font-bold text-xl leading-3">
-            {data?.name}
-          </p>
-          <p className="leading-3 text-slate-300">{data?.desc}</p>
-        </div>
+    <div
+      className="  rounded-full flex flex-col odd:bg-[#E6FFDD] even:bg-[#F2F3FF] items-center text-center p-3 justify-center   w-[120px] h-[120px] cursor-pointer hover:ring-2 ring-secondary-light"
+      onClick={onClickHandler}
+    >
+      <div className="bg-pink-400d ">
+        <Image src="/images/paifang.png" width={40} height={40} />
       </div>
-    </Box>
+      <p className="text-slate-500 font-medium  leading-4">{data?.name}</p>
+    </div>
   );
 }

@@ -14,7 +14,7 @@ export default function PlayHeader() {
         {isPlay && <Icon onClick={replay}>refresh</Icon>}
         {isPlay && <Icon onClick={stop}>circle-stop</Icon>}
         {isPlay && (
-          <p className="text-slate-300 px-3">
+          <p className="text-slate-400 px-3">
             lesson - {lessonData?.num} - {lessonData?.name}
           </p>
         )}

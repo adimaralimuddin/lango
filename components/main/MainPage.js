@@ -1,20 +1,18 @@
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import LangMain from "../lang/LangMain";
 import LessonMain from "../lesson/LessonMain";
 import LevelMain from "../level/LevelMain";
-import MainLayout from "./MainLayout";
 import useStore from "./MainStore";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 export default function MainPage() {
   const { tab, set } = useStore();
-  const r = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
-    const { tab, lang, level, lesson } = r.query;
-    console.log("setting tab,lang,level");
+    const { tab, lang, level, lesson } = router.query;
     set({ tab, lang, level, lesson });
-  }, [r]);
+  }, [router]);
 
   const content = () => {
     switch (tab) {
@@ -26,5 +24,5 @@ export default function MainPage() {
         return <LangMain />;
     }
   };
-  return <MainLayout>{content()}</MainLayout>;
+  return content();
 }

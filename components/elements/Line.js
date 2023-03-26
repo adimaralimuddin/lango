@@ -10,11 +10,11 @@ export default function Line({
   const color = () => {
     switch (type) {
       case "text":
-        return " text-purple-300 ";
+        return " text-secondary-lightd text-lime-500 font-medium ";
       case "trans":
-        return " text-blue-300 ";
+        return " text-indigo-400 font-medium ";
       case "latin":
-        return " text-slate-400 ";
+        return " text-slate-500 ";
       default:
         break;
     }

@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
+import { getAvatar } from "../../../hooks/trans";
 import usePlay from "../../../hooks/usePlay";
 import Aud from "../../elements/Aud";
 import Box from "../../elements/Box";
 import Icon from "../../elements/Icon";
 import Line from "../../elements/Line";
-import { getAvatar } from "../../../hooks/trans";
 
 export default function DiagPlayItem({ data, i }) {
   const { ind, setDone, isPlay, code } = usePlay();
@@ -20,7 +20,7 @@ export default function DiagPlayItem({ data, i }) {
   };
 
   return (
-    <Box
+    <div
       className={
         "min-w-[300px] my-0 mx-0 bg-slate-800d bg-transparent p-6 " +
         (data?.voice?.align == "l" && " ring-2d mr-auto ") +
@@ -28,25 +28,21 @@ export default function DiagPlayItem({ data, i }) {
       }
     >
       <header className="flex"></header>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-cold gap-3 items-center">
         {data?.img && (
           <Image
             alt="img item"
             className="rounded-lg"
             src={data?.img}
-            height={250}
-            width={250}
+            height={150}
+            width={150}
           />
         )}
-        <Aud
-          className=" my-2"
-          autoPlay={isPlay}
-          src={data?.aud}
-          onEnded={onEnded}
-        />
-        <Line text={data?.trans} type="trans" />
-        <Line text={data?.text} type="text" />
-        <Line text={data?.latin} type="latin" />
+        <div className="flex flex-col items-start p-2">
+          <Line text={data?.trans} type="trans" />
+          <Line text={data?.text} type="text" />
+          <Line text={data?.latin} type="latin" />
+        </div>
       </div>
       <div
         className={
@@ -55,8 +51,16 @@ export default function DiagPlayItem({ data, i }) {
           (data?.voice?.align?.trim() == "l" && " justify-start ")
         }
       >
-        <Icon onClick={setDone}>check</Icon>
-        {data?.voice?.align !== "c" && (
+        <div className="flex gap-2">
+          <Icon onClick={setDone}>check</Icon>
+          <Aud
+            className=" my-2"
+            autoPlay={isPlay}
+            src={data?.aud}
+            onEnded={onEnded}
+          />
+        </div>
+        {/* {data?.voice?.align !== "c" && getAvatar(data, code) && (
           <Image
             alt={data?.voice?.name}
             className="rounded-lg"
@@ -64,8 +68,8 @@ export default function DiagPlayItem({ data, i }) {
             height={100}
             width={110}
           />
-        )}
+        )} */}
       </div>
-    </Box>
+    </div>
   );
 }

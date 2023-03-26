@@ -1,5 +1,4 @@
 import React from "react";
-import But from "../elements/But";
 import DiagAdder from "./diag/DiagAdder";
 import LinesAdder from "./lines/LinesAdder";
 

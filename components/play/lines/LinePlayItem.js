@@ -47,7 +47,7 @@ function Item({ text, type, side, done }) {
         <Aud
           src={text}
           playable={!done}
-          className=" py-2 w-fulld rounded-md ring-0 bg-slate-700"
+          className=" py-2d rounded-md ring-0 "
         />
       );
     } else {

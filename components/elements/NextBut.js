@@ -14,7 +14,7 @@ export default function NextBut() {
       {done && (
         <But
           greend
-          className=" max-w-md w-full  text-2xl p-2 px-6 bg-purple-500 font-bold ring-0 "
+          className=" max-w-md w-full  text-2xl p-2 px-6 bg-secondary-light text-white font-bold ring-0 "
           onClick={onClickHandler}
         >
           Next

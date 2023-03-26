@@ -12,11 +12,14 @@ export default function useLesson() {
   const { set } = store;
 
   //getlessons
-  function listenlessons(level) {
+  function listenlessons(level, setter) {
     if (!level) return;
     return listenColWhere(
       "lessons",
-      (lessons) => set({ lessons }),
+      (lessons) => {
+        set({ lessons });
+        setter?.(lessons);
+      },
       where("levelId", "==", level)
     );
   }

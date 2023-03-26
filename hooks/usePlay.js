@@ -91,10 +91,10 @@ export default function usePlay() {
     restore();
     const url = new URL(location?.href);
     var sp = url.searchParams;
-    sp.set("tab", "lessons");
+    sp.set("tab", "levels");
     sp.set("lang", lessonData.langId);
     sp.set("level", lessonData.levelId);
-    set({ tab: "lesson" });
+    set({ tab: "level" });
     router.push("/?" + sp?.toString());
   }
 

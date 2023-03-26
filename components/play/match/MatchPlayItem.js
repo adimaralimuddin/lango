@@ -74,11 +74,11 @@ export default function MatchPlayItem({ data, i }) {
   };
 
   return (
-    <Box className=" bg-slate-800 select-none w-full max-w-xl p-6 flex flex-col my-0 mx-0">
+    <div className=" select-none">
       <header className="flex">
         <Icon onClick={restart}>rotate-right</Icon>
       </header>
-      <div className=" flex flex-wrap gap-2 py-2 items-center justify-center content-center">
+      <div className=" flex flex-col  gap-6">
         <Pair
           lines={lines}
           data={data}
@@ -94,7 +94,7 @@ export default function MatchPlayItem({ data, i }) {
           side="ansSide"
         />
       </div>
-    </Box>
+    </div>
   );
 }
 
@@ -102,9 +102,7 @@ function Pair({ lines, data, sel, onSel, r = "r1", side = "side", className }) {
   return (
     <div
       className={
-        data?.[side] == "img"
-          ? "grid grid-cols-2 gap-2 ring-1d "
-          : "grid gap-2 py-2 flex-1d "
+        "bg-red-300d flex gap-3 flex-wrap content-center justify-center"
       }
     >
       {lines
@@ -113,8 +111,8 @@ function Pair({ lines, data, sel, onSel, r = "r1", side = "side", className }) {
           <LinePlayItem
             className={
               data?.[side] == "img"
-                ? " min-h-[150px] w-[120px] "
-                : " bg-slate-700 "
+                ? " min-h-[100px] w-[100px] "
+                : " bg-orange-200 text-white "
             }
             line={l}
             i={i}

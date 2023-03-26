@@ -4,7 +4,7 @@ import MainHeader from "./MainHeader";
 
 export default function MainLayout({ children }) {
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col">
+    <div className="min-h-screen bg-slate-900d flex flex-col">
       <MainHeader />
 
       {children}

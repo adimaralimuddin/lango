@@ -11,24 +11,22 @@ export default function LangItem({ data }) {
     set({ tab: "levels", lang: data?.id });
   };
   return (
-    <Box className="w-full max-w-[180px]">
-      <div
-        className="flex flex-col items-center justify-center cursor-pointer"
-        onClick={onClickHandler}
-      >
-        {data?.img && (
-          <div className="relative h-[60px] w-[90px] ">
-            <Image
-              alt={data?.name + " image"}
-              className=" rounded-xl "
-              src={data?.img}
-              layout="fill"
-              objectFit="fit"
-            />
-          </div>
-        )}
-        <p className="text-purple-200">{data?.name}</p>
-      </div>
-    </Box>
+    <div
+      onClick={onClickHandler}
+      className="flex flex-col bg-orange-50 ring-2 ring-white justify-center items-center w-full max-w-[190px] mx-auto cursor-pointer shadow-md p-3 rounded-2xl hover:shadow-xl"
+    >
+      {data?.img && (
+        <div className="relative min-h-[70px] flex-1 ">
+          <Image
+            alt={data?.name + " image"}
+            className=" rounded-xl "
+            src={data?.img}
+            width={100}
+            height={70}
+          />
+        </div>
+      )}
+      <p className="text-[1rem] text-center p-1 font-medium ">{data?.name}</p>
+    </div>
   );
 }
