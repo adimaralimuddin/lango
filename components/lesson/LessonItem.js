@@ -1,28 +1,47 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
-import Box from "../elements/Box";
-import Indexer from "../elements/Indexer";
 import useMain from "../main/MainStore";
 
-export default function LessonItem({ data }) {
+export default function LessonItem({ data, ind }) {
   const { lang, level } = useMain();
-  const { set } = useMain();
   const r = useRouter();
   // console.log("less ", data);
   const onClickHandler = () => {
-    // set({ tab: "lessons", lesson: data?.id });
-    r.push(`play?lang=${lang}&level=${level}&lesson=${data?.id}`);
+    r.push(`/play?lang=${lang}&level=${level}&lesson=${data?.id}`);
   };
   return (
     <div
-      className="  rounded-full flex flex-col odd:bg-[#E6FFDD] even:bg-[#F2F3FF] items-center text-center p-3 justify-center   w-[120px] h-[120px] cursor-pointer hover:ring-2 ring-secondary-light"
+      className={
+        "   flex flex-col   items-center text-center p-3  justify-center   w-[150px] h-[150px] cursor-pointer hover:ring-2 ring-secondary-light dark:ring-indigo-400 " +
+        (ind === 0
+          ? "rounded-3xl bg-secondary-light dark:bg-[#705c9e] "
+          : "rounded-full bg-[#F2F0FB] dark:bg-back-third")
+      }
       onClick={onClickHandler}
     >
-      <div className="bg-pink-400d ">
-        <Image src="/images/paifang.png" width={40} height={40} />
+      <div className="bg-pink-400d  ">
+        <Image
+          src={`/assets/images/${defineImages(ind)}.png`}
+          width={54}
+          height={54}
+          alt=""
+        />
       </div>
-      <p className="text-slate-500 font-medium  leading-4">{data?.name}</p>
+      <p className=" font-medium  leading-4">{data?.name}</p>
     </div>
   );
 }
+
+const defineImages = (i) => {
+  switch (i) {
+    case 0:
+      return "apple";
+    case 1:
+      return "run";
+    case 2:
+      return "parcel";
+    default:
+      return "learn";
+  }
+};

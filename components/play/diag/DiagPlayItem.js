@@ -1,9 +1,7 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
-import { getAvatar } from "../../../hooks/trans";
 import usePlay from "../../../hooks/usePlay";
 import Aud from "../../elements/Aud";
-import Box from "../../elements/Box";
 import Icon from "../../elements/Icon";
 import Line from "../../elements/Line";
 
@@ -18,7 +16,6 @@ export default function DiagPlayItem({ data, i }) {
   const onEnded = () => {
     setDone(true);
   };
-
   return (
     <div
       className={

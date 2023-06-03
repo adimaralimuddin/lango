@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import usePlay from "../../../hooks/usePlay";
 import DiagPlayItem from "../diag/DiagPlayItem";
@@ -14,7 +15,7 @@ export default function ItemPlay({ item, ind }) {
     } else if (item?.type == "select") {
       return <SelectPlayItem data={item} i={ind} />;
     } else {
-      return "new type = " + item?.type;
+      return null;
     }
   };
 

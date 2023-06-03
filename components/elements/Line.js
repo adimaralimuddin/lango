@@ -10,11 +10,11 @@ export default function Line({
   const color = () => {
     switch (type) {
       case "text":
-        return " text-secondary-lightd text-lime-500 font-medium ";
+        return " text-pink-400 dark:text-pink-300 font-bold ";
       case "trans":
-        return " text-indigo-400 font-medium ";
+        return " text-indigo-400 font-bold dark:text-indigo-300 ";
       case "latin":
-        return " text-slate-500 ";
+        return " text-slate-500 dark:text-slate-300 ";
       default:
         break;
     }
@@ -37,7 +37,7 @@ export default function Line({
     <div
       {...props}
       className={
-        " flex flex-col text-center items-center text-xl " +
+        "  flex flex-col text-center items-center text-xl " +
         color() +
         "" +
         (autoSize && size()) +

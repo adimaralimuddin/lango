@@ -95,7 +95,8 @@ export default function usePlay() {
     sp.set("lang", lessonData.langId);
     sp.set("level", lessonData.levelId);
     set({ tab: "level" });
-    router.push("/?" + sp?.toString());
+    // router.push("/?" + sp?.toString());
+    router.back();
   }
 
   return {

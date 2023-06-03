@@ -1,8 +1,13 @@
+import { useRouter } from "next/router";
 import React from "react";
-import usePlay from "../../hooks/usePlay";
 import Icon from "./Icon";
 
 export default function HomeBut() {
-  const { home } = usePlay();
-  return <Icon onClick={home}>home</Icon>;
+  const router = useRouter();
+
+  return (
+    <Icon className="sm:text-4xl " onClick={router.back}>
+      home
+    </Icon>
+  );
 }

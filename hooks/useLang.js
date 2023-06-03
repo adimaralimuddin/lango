@@ -1,17 +1,17 @@
 import create from "zustand";
 import useMain from "../components/main/MainStore";
+import languagesData from "../data/languagesData";
 import { addDb, addFile, listenCol, updateDb } from "./useDb";
 
 const store_ = create((set) => ({
-  langs: [],
+  langs: languagesData,
+  langId: undefined,
   set,
 }));
 
 export default function useLang() {
   const store = store_();
-  const { lang } = useMain();
-  const { set, langs } = store;
-
+  const { set, langs, langId } = store;
 
   //getLangs
   function listenLangs() {
@@ -34,7 +34,7 @@ export default function useLang() {
   }
 
   function curLang() {
-    return langs?.find((l) => l?.id == lang);
+    return langs?.find((l) => l?.id == langId);
   }
 
   return {

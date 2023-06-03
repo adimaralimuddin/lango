@@ -5,7 +5,7 @@ import LessonMain from "../lesson/LessonMain";
 import LevelMain from "../level/LevelMain";
 import useStore from "./MainStore";
 
-export default function MainPage() {
+export default function MainPage(x) {
   const { tab, set } = useStore();
   const router = useRouter();
 

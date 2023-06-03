@@ -1,44 +1,43 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import useLang from "../../hooks/useLang";
 import useLevel from "../../hooks/useLevel";
-import ButBack from "../elements/ButBack";
-import MainHeader from "../main/MainHeader";
-import useMain from "../main/MainStore";
+
+import { motion } from "framer-motion";
+import { ThemeButton } from "../../hooks/useTheming";
+import HeaderDiv from "../elements/HeaderDiv";
+import Logo from "../elements/Logo";
+import { SiteMap } from "../main/MainHeader";
 import LevelItem from "./LevelItem";
+
 export default function LevelMain() {
+  const { set } = useLang();
   const { listenLevels, levels, clearLevel } = useLevel();
-  const { lang } = useMain();
+  const {
+    query: { lang },
+  } = useRouter();
 
   useEffect(() => {
+    if (lang) {
+      set({ langId: lang });
+    }
     const ret = listenLevels(lang);
     return ret;
   }, [lang]);
-
   return (
-    <div className="">
-      {/* <MainHeader /> */}
-      <div className="flex gap-2 ring-1 ">
-        <div className="flex-1 max-w-[250px] bg-red-400d p-8 h-screen sticky top-0 py-1d border-r-2 ">
-          <div className="flex gap-3 pb-6">
-            {/* <ButBack caller={clearLevel}>lang</ButBack> */}
-            <Link href="/">
-              <h1 className="text-3xl font-bold text-secondary-lightd text-lime-500">
-                Bhasha
-              </h1>
-            </Link>
-          </div>
-          <Header />
-          {/* <h1 className="text-base font-semibold">CLASS: 5</h1> */}
-          {/* <h3 className="text-base font-semibold">Levels: 5</h3> */}
-          {/* <h3 className="text-base font-semibold">LESSONS: 25</h3> */}
-        </div>
-        <div className=" container mx-auto dring-1 p-3 py-8 flex-1 flex flex-col flex-wrap gap-6 max-w-xl  dw-full">
+    <div className="dark:bg-back-second">
+      <Header />
+      <div className="flex gap-2 ">
+        <SideBar />
+        <div className=" container mx-auto dring-1 p-3 py-8 flex-1 flex flex-col flex-wrap gap-6 max-w-xl  dw-full min-h-[200vh]">
           {levels
             ?.sort((a, b) => a?.num - b?.num)
             ?.map((level) => (
-              <LevelItem data={level} key={level?.id} />
+              <div key={level?.id}>
+                <LevelItem data={level} key={level?.id} />
+              </div>
             ))}
         </div>
       </div>
@@ -46,22 +45,35 @@ export default function LevelMain() {
   );
 }
 
-const Header = () => {
+const Header = ({}) => {
   const { curLang } = useLang();
   const lang = curLang();
 
-  console.log("lang");
-
   return (
-    <span className="flex gap-2 items-center pb-4">
-      <Image
-        className="rounded-lg"
-        src={lang?.img}
-        width={40}
-        height={20}
-        alt=""
-      />
-      <h1 className="text-lg font-bold">{lang?.name}</h1>
-    </span>
+    <HeaderDiv className="bg-white dark:bg-back-main sticky top-0 z-10 bg-greend-400">
+      <Logo />
+      <SiteMap />
+      <div className="flex items-center gap-3">
+        <Image
+          className="rounded-lg"
+          src={lang?.img}
+          width={40}
+          height={20}
+          alt=""
+        />
+        <h1 className="text-lg font-bold">{lang?.name}</h1>
+      </div>
+      <ThemeButton />
+    </HeaderDiv>
+  );
+};
+
+const SideBar = () => {
+  return (
+    <aside className="flex-1 max-w-[250px] bg-red-400d p-8 h-screen sticky top-[70px] py-1d border-r-2 text-2xl font-bold dark:border-slate-500">
+      <p className=" ">CLASS: 5</p>
+      <p className=" ">Levels: 5</p>
+      <p className=" ">LESSONS: 25</p>
+    </aside>
   );
 };

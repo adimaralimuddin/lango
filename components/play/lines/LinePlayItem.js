@@ -23,7 +23,7 @@ export default function LinePlayItem({
       onClick={onSelect}
       style={{ opacity: line?.done && "15%" }}
       className={
-        "cursor-pointer rounded-xl overflow-hidden text-center flex flex-col items-center justify-center leading-5 ring-violet-400 min-w-[120px] active:scale-105  " +
+        "cursor-pointer rounded-xl overflow-hidden text-center flex flex-col items-center justify-center leading-5 ring-violet-400 dark:ring-violet-200 min-w-[120px] active:scale-105  " +
         (sel == line && " ring-2 ") +
         (line?.done && " cursor-default  ") +
         props?.className

@@ -102,7 +102,7 @@ function Pair({ lines, data, sel, onSel, r = "r1", side = "side", className }) {
   return (
     <div
       className={
-        "bg-red-300d flex gap-3 flex-wrap content-center justify-center"
+        "bg-red-300d flex gap-3 flex-wrap content-center justify-center "
       }
     >
       {lines
@@ -112,7 +112,7 @@ function Pair({ lines, data, sel, onSel, r = "r1", side = "side", className }) {
             className={
               data?.[side] == "img"
                 ? " min-h-[100px] w-[100px] "
-                : " bg-orange-200 text-white "
+                : " bg-violet-200 dark:bg-violet-400 text-white "
             }
             line={l}
             i={i}
